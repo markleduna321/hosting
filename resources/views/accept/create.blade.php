@@ -5,6 +5,33 @@
 @section('content')
     <h1> Accept Order</h1>
 
+    <table class="table table-bordered">
+
+        <thead>
+            <tr>
+               <th>Purchase ID</th>
+                <th>Account Name</th>
+               <th> Address</th> 
+               <th> Type</th>   
+               <th> Status</th>    
+            </tr>
+        </thead>
+
+        <tbody>
+             @foreach ($lemons as $lemon)
+            <tr>
+            @if ($lemon->status === 'Pending')
+                <td>{{$lemon->id}}</td>
+                <td>{{$lemon->name}}</a></td>
+                <td>{{$lemon->address}}</td>
+                <td>{{$lemon->type}}</td>
+                <td>{{$lemon->status}}</td>
+            @endif
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
     <div class="form-group pb-3">
         <form action="/searches" method="get">
             <label for="search">Generate PO Data:</label>
@@ -140,35 +167,6 @@
         <button type="submit" class="btn btn-primary">Accept Order</button>
          @endforeach
     </form>
-
-   
-
-   <table class="table table-bordered">
-
-        <thead>
-            <tr>
-               <th>Purchase ID</th>
-                <th>Account Name</th>
-               <th> Address</th> 
-               <th> Type</th>   
-               <th> Status</th>    
-            </tr>
-        </thead>
-
-        <tbody>
-             @foreach ($lemons as $lemon)
-            <tr>
-            @if ($lemon->status === 'Pending')
-                <td>{{$lemon->id}}</td>
-                <td>{{$lemon->name}}</a></td>
-                <td>{{$lemon->address}}</td>
-                <td>{{$lemon->type}}</td>
-                <td>{{$lemon->status}}</td>
-            @endif
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
 
     <hr>
 @endsection
