@@ -38,7 +38,7 @@ class AcceptController extends Controller
     public function create()
     {
         $lemons = Purchase::all();
-        $purchases = Purchase::where('id',  '' )->get();
+        $purchases = Purchase::all();
         $accept = new Inventory();
 
         return view('accept.create', compact('accept', 'purchases', 'lemons'));
